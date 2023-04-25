@@ -8,7 +8,7 @@
 	<li>Spring Batch</li>
 	<li>MariaDB</li>
 	<li>MyBatis</li>
-	<li>Redis, JMS,  : 별도의 URL로 메시지 전달할 때 사용</li>
+	<li>Redis, JMS, RabbitMQ : 별도의 URL로 메시지 전달할 때 사용(의존성 주입으로 수행 결정, 일단 모두 구현)</li>
 </ul>
 
 ### 3. 기능
