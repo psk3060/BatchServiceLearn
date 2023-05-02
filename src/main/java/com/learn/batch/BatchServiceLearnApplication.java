@@ -9,7 +9,10 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 public class BatchServiceLearnApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(BatchServiceLearnApplication.class, args);
+		// SpringApplication.run(BatchServiceLearnApplication.class, args);
+		
+		System.exit(SpringApplication.exit(SpringApplication.run(BatchServiceLearnApplication.class, args)));
+		
 	}
 
 }
