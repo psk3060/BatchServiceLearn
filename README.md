@@ -17,6 +17,8 @@
 	<li>스프링IO 스케줄러 가이드 직접 확인</li>
 	<li>휴면계정 전환 : 별도의 RESTful API 호출(휴면 계정으로 전환하고, 별도의 리턴값 전달)</li>
 	<li>휴면계정 안내 : 안내용 메시지, 카카오톡, 이메일 보관은 배치 자체에서 처리(발송 내역 DB 보관)</li>
+	<li>휴면계정에 관련된 기능은 모두 JobExecutionListener를 구현한 클래스에서 처리</li>
+	<li>휴면계정 안내, 전환 모두 별도의 Job에서 진행</li>
 </ol>
 
 ### 4. 참조 사이트
@@ -27,6 +29,8 @@
 	<li>배치 생성 스프링IO : https://spring.io/guides/gs/batch-processing</li>
 	<li>배치 생성 GITHUB : https://github.com/spring-guides/gs-batch-processing</li>	
 	<li>REDIS 메시지 전달 스프링IO : https://spring.io/guides/gs/messaging-redis</li>	
+	<li>REDIS 메시지 전달 GITHUB : https://github.com/spring-guides/gs-messaging-redis</li>
+	<li>(스프링 Data 사용) REDIS, Lettuce 연동 스프링IO : https://spring.io/guides/gs/spring-data-reactive-redis</li>
 	<li>JMS 메시지 전달 스프링IO : https://spring.io/guides/gs/messaging-jms</li>
 	<li>RABBITMQ 메시지 전달 스프링IO : https://spring.io/guides/gs/messaging-rabbitmq</li>	
 </ul>
@@ -35,9 +39,15 @@
 
 <ul>
 	<li>spring-test-starter 포함 시 반드시 DB 드라이버 의존성(임베디드 데이터베이스 또는 기타 DBMS) 추가하고, DB 접속 정보 추가해 둘것</li>
-	<li>awaitility : 폴링 간격 조절이나 비동기 테스트 시</li>
+	<li>awaitility : 폴링 간격 조절이나 비동기 테스트 시 이용할 수 있는 라이브러리</li>
+	<li>Lettuce : </li>
+	
 </ul>
 
 ### 6. 테스트
 
+<ul>
+	<li>mvnw clean test -Dtest="BatchServiceLearnApplicationTests"</li>
+	<li>mvnw clean test -Dtest="ReceiverTaskTest"</li>	
+</ul>
 

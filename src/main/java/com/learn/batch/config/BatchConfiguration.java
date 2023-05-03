@@ -64,7 +64,8 @@ public class BatchConfiguration {
 	 * @param dataSource
 	 */
 	@Bean
-	public JdbcBatchItemWriter<PersonTestVO> insert(DataSource dataSource) {
+	public JdbcBatchItemWriter<PersonTestVO> writer(DataSource dataSource) {
+
 		return new JdbcBatchItemWriterBuilder()
 					.itemSqlParameterSourceProvider(new BeanPropertyItemSqlParameterSourceProvider<>())
 					.sql("INSERT INTO people (first_name, last_name) VALUES (:firstName, :lastName)")
