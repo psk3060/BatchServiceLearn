@@ -31,7 +31,9 @@
 	<li>REDIS 메시지 전달 스프링IO : https://spring.io/guides/gs/messaging-redis</li>	
 	<li>REDIS 메시지 전달 GITHUB : https://github.com/spring-guides/gs-messaging-redis</li>
 	<li>(스프링 Data 사용) REDIS, Lettuce 연동 스프링IO : https://spring.io/guides/gs/spring-data-reactive-redis</li>
+	<li>(스프링 Data 사용) REDIS, Lettuce 연동 GITHUB : https://github.com/spring-guides/gs-spring-data-reactive-redis</li>	
 	<li>JMS 메시지 전달 스프링IO : https://spring.io/guides/gs/messaging-jms</li>
+	<li>JMS 메시지 전달 GITHUB : 	https://github.com/spring-guides/gs-messaging-jms</li>
 	<li>RABBITMQ 메시지 전달 스프링IO : https://spring.io/guides/gs/messaging-rabbitmq</li>	
 </ul>
 
