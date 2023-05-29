@@ -33,7 +33,7 @@
 	<li>(스프링 Data 사용) REDIS, Lettuce 연동 스프링IO : https://spring.io/guides/gs/spring-data-reactive-redis</li>
 	<li>(스프링 Data 사용) REDIS, Lettuce 연동 GITHUB : https://github.com/spring-guides/gs-spring-data-reactive-redis</li>	
 	<li>JMS 메시지 전달 스프링IO : https://spring.io/guides/gs/messaging-jms</li>
-	<li>JMS 메시지 전달 GITHUB : 	https://github.com/spring-guides/gs-messaging-jms</li>
+	<li>JMS 메시지 전달 GITHUB : https://github.com/spring-guides/gs-messaging-jms</li>	
 	<li>RABBITMQ 메시지 전달 스프링IO : https://spring.io/guides/gs/messaging-rabbitmq</li>	
 </ul>
 
@@ -42,14 +42,15 @@
 <ul>
 	<li>spring-test-starter 포함 시 반드시 DB 드라이버 의존성(임베디드 데이터베이스 또는 기타 DBMS) 추가하고, DB 접속 정보 추가해 둘것</li>
 	<li>awaitility : 폴링 간격 조절이나 비동기 테스트 시 이용할 수 있는 라이브러리</li>
-	<li>Lettuce : </li>
-	
+	<li>Lettuce : redis 클라이언트 api(스프링부트 2.0부터 기본). 발행자-구독자 패턴 이용. https://lettuce.io/core/release/reference/index.html</li>
+	<li>JmsListener 참조 : https://docs.spring.io/spring-framework/reference/integration/jms/annotated.html#jms-annotated-method-signature</li>
 </ul>
 
 ### 6. 테스트
 
 <ul>
 	<li>mvnw clean test -Dtest="BatchServiceLearnApplicationTests"</li>
-	<li>mvnw clean test -Dtest="ReceiverTaskTest"</li>	
+	<li>mvnw clean test -Dtest="ReceiverTaskTest"</li>
+	<li>mvnw clean test -Dtest="JmsReceiverTaskTest"</li>
 </ul>
 
