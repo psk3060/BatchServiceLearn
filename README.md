@@ -44,6 +44,13 @@
 	<li>awaitility : 폴링 간격 조절이나 비동기 테스트 시 이용할 수 있는 라이브러리</li>
 	<li>Lettuce : redis 클라이언트 api(스프링부트 2.0부터 기본). 발행자-구독자 패턴 이용. https://lettuce.io/core/release/reference/index.html</li>
 	<li>JmsListener 참조 : https://docs.spring.io/spring-framework/reference/integration/jms/annotated.html#jms-annotated-method-signature</li>
+	<li>ActiveMQ : JMS 구현한 메시지 브로커(메시지 기반 통신)</li>
+	<li>ActiveMQ.Connection : 클라이언트와 JMS 기반의 메시지 브로커간의 연결. Connection에서 Session 생성</li>
+	<li>ActiveMQ.Session : 메시지를 생성, 송수신, 커밋 또는 롤백. Connection 내에서 여러 개의 Session 생성 가능. 메시지 송수신에 대한 트랜잭션, 메시지의 송신과 수신에 사용되는 Producer와 Consumer의 생성 및 관리 담당</li>
+	<li>ActiveMQ.Producer : 메시지브로커로 메시지를 송신. Session 내에서 생성되며, 특정 대상(destination, Queue 또는 Topic)에 메시지 전달. </li>
+	<li>메시지 송신 : ConnectionFactory 생성 => Connection 생성 => Session 생성 => Destination 설정(@JmsListener, 메시지를 보낼 대상) => Message 생성 => MessageProducer 생성 => 메시지 전송</li>
+	<li>ActiveMQ.Consumer : 메시지브로커에서 메시지를 수신. Session 내에서 생성되며, 메시지를 동기 또는 비동기적으로 수신. </li>
+	<li>메시지 수신 : ConnectionFactory 생성 => Connection 생성 => Session 생성 => Destination 설정(@JmsListener, 메시지를 받아올 대상) => Message 생성 => MessageConsumer 생성 => 메시지 수신(MessageConsumer의 receive(), JmsTemplate.receive())</li>
 </ul>
 
 ### 6. 테스트
