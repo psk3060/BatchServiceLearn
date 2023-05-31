@@ -15,7 +15,7 @@ import reactor.core.publisher.Flux;
 
 import java.util.UUID;
 
-@Component
+// @Component
 public class CoffeeLoader {
 	
 	private Logger logger = LoggerFactory.getLogger(CoffeeLoader.class);

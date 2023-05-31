@@ -11,7 +11,7 @@ import org.springframework.data.redis.serializer.StringRedisSerializer;
 
 import com.learn.batch.service.model.Coffee;
 
-@Configuration
+// @Configuration
 public class CoffeeConfiguration {
 	@Bean
 	public ReactiveRedisOperations<String, Coffee> redisOperations(ReactiveRedisConnectionFactory factory) {

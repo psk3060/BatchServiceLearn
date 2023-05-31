@@ -13,7 +13,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class EmailJmsVo implements Serializable {
+public class EmailJmsVo  implements Serializable {
 
 	/**
 	 * 
@@ -44,7 +44,7 @@ public class EmailJmsVo implements Serializable {
 	
 	@Override
 	public String toString() {
-		return String.format("EmailJmsVo : {\"from\" : \"%s\", \"to\" : \"%s\", \"body\" : \"%s\"}", from, to, body);
+		return String.format("{\"from\":\"%s\",\"to\":\"%s\",\"body\":\"%s\"}", getFrom(), getTo(), getBody());
 	}
 	
 	@Override

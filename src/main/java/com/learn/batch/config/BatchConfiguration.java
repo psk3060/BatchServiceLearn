@@ -1,5 +1,7 @@
 package com.learn.batch.config;
 
+import java.util.concurrent.CountDownLatch;
+
 import javax.sql.DataSource;
 
 import org.slf4j.Logger;
@@ -23,6 +25,7 @@ import org.springframework.core.io.ClassPathResource;
 import org.springframework.transaction.PlatformTransactionManager;
 
 import com.learn.batch.service.model.PersonTestVO;
+import com.learn.batch.task.ReceiverTask;
 
 @Configuration
 @SuppressWarnings({ "rawtypes", "unchecked" })
@@ -30,11 +33,21 @@ public class BatchConfiguration {
 	
 	final private static Logger logger = LoggerFactory.getLogger(BatchConfiguration.class);
 	
+	
+	/**
+	 * message Bean 생성
+	 * @return
+	 */
+	@Bean
+	public ReceiverTask receiverTask() {
+		return new ReceiverTask(new CountDownLatch(1000));
+	}
+	
 	/**
 	 * 리소스 Read
 	 * @return
 	 */
-	@Bean
+	// @Bean
 	public FlatFileItemReader<PersonTestVO> reader() {
 		return new FlatFileItemReaderBuilder()
 					.name("personItemReader")
@@ -53,7 +66,7 @@ public class BatchConfiguration {
 	 * ItemProcessor Bean
 	 * @return
 	 */
-	@Bean
+	// @Bean
 	public PersonItemProcessor processor() {
 		return new PersonItemProcessor();
 	}
@@ -63,7 +76,7 @@ public class BatchConfiguration {
 	 * - chunk 단위의 List
 	 * @param dataSource
 	 */
-	@Bean
+	// @Bean
 	public JdbcBatchItemWriter<PersonTestVO> writer(DataSource dataSource) {
 
 		return new JdbcBatchItemWriterBuilder()
@@ -77,7 +90,7 @@ public class BatchConfiguration {
 	/**
 	 * job 실행 -> step1 실행(chunk, reader, processor, writer 설정) -> job 완료  
 	 */
-	@Bean
+	// @Bean
 	public Step firstSetting(JobRepository jobRepository, PlatformTransactionManager transactionManager, JdbcBatchItemWriter<PersonTestVO> writer) {
 		return new StepBuilder("step1", jobRepository)
 					.<PersonTestVO, PersonTestVO> chunk(10, transactionManager)
@@ -92,7 +105,7 @@ public class BatchConfiguration {
 	/**
 	 * Run Job
 	 */
-	@Bean
+	// @Bean
 	public Job importUserJob(JobRepository jobRepository, JobCompletionNotificationListener listener, Step firstSetting) {
 		return new JobBuilder("importUserJob", jobRepository)
 					.incrementer(new RunIdIncrementer())

@@ -14,7 +14,7 @@ import org.springframework.data.redis.listener.adapter.MessageListenerAdapter;
 
 import com.learn.batch.task.ReceiverTask;
 
-@Configuration
+// @Configuration
 public class RedisMessageConfiguration {
 	
 	@SuppressWarnings("unused")
@@ -46,16 +46,6 @@ public class RedisMessageConfiguration {
 	public MessageListenerAdapter listenerAdapter(ReceiverTask receiverTask) {
 		return new MessageListenerAdapter(receiverTask, "receiveMessageProc");
 	}
-	
-	/**
-	 * message Bean 생성
-	 * @return
-	 */
-	@Bean
-	public ReceiverTask receiverTask() {
-		return new ReceiverTask(new CountDownLatch(1000));
-	}
-	
 	
 	@Bean
 	public StringRedisTemplate template(RedisConnectionFactory connectionFactory) {

@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 
 import com.learn.batch.service.model.PersonTestVO;
 
-@Component
+// @Component
 class JobCompletionNotificationListener implements JobExecutionListener {
 	
 	

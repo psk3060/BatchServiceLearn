@@ -6,7 +6,7 @@ import org.springframework.jms.annotation.EnableJms;
 import org.springframework.scheduling.annotation.EnableScheduling;
 
 @SpringBootApplication
-@EnableScheduling
+// @EnableScheduling
 @EnableJms
 public class BatchServiceLearnApplication {
 

@@ -11,7 +11,7 @@ import com.learn.batch.service.model.Coffee;
 
 import reactor.core.publisher.Flux;
 
-@RestController
+// @RestController
 public class CoffeeController {
 	
 	private Logger logger = LoggerFactory.getLogger(CoffeeController.class);
