@@ -3,6 +3,8 @@ package com.learn.batch.service.model;
 import java.io.Serializable;
 import java.util.Objects;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -19,6 +21,8 @@ public class EmailJmsVo  implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = -8378943452772786754L;
+	
+	private String messsgeId;
 	
 	private String from;
 	private String to;
@@ -78,6 +82,24 @@ public class EmailJmsVo  implements Serializable {
 				&& Objects.equals(this.getBody(), temp.getBody())
 		;
 		
+	}
+	public String getMesssgeId() {
+		return messsgeId;
+	}
+	public void setMesssgeId(String messsgeId) {
+		this.messsgeId = messsgeId;
+	}
+	
+	public static EmailJmsVo isValue(String json) {
+		ObjectMapper objectMapper = new ObjectMapper();
+	    try {
+	        return objectMapper.readValue(json, EmailJmsVo.class);
+	    } catch (Exception e) {
+	        // JSON 파싱 중 예외 처리
+	        e.printStackTrace();
+	        return null;
+	    }
+
 	}
 	
 }
